@@ -1,0 +1,333 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="APInvoiceFolder_FilterMaillList" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umam="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umame="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail.Enums;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umamm="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail.Models;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umm="clr-namespace:UiPath.MicrosoftOffice365.Models;assembly=UiPath.MicrosoftOffice365" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_dtDataService1" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_dtDataService2" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_dtDataService3" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="out_Finaloutput" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="in_currentOffice365Message" Type="InArgument(scg:List(umm:Office365Message))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>APInvoiceFolder_FilterMaillList_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Mail</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Mail.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Models</x:String>
+      <x:String>UiPath.Shared.Services.Graph.Mail.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Mail.Filters</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Mail.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Filters</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Mail.Models</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
+      <x:String>UiPath.Shared.Services.Graph.Mail.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Numerics</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="APInvoiceFolder_FilterMaillList" sap:VirtualizedContainerService.HintSize="858.6666666666666,3979.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="sEmailDomainName" />
+      <Variable x:TypeArguments="x:String" Name="VendorFolderName" />
+      <Variable x:TypeArguments="x:String" Name="sEmailSubjectName" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="526,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Started the Filter Mail List process..&quot;]" />
+    <Assign sap:VirtualizedContainerService.HintSize="526,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[sEmailDomainName]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_currentOffice365Message(0).FromAddress]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="526,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[sEmailSubjectName]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_currentOffice365Message(0).Subject]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="526,3378" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="524,3022.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LookupDataTable LookupColumnIndex="{x:Null}" LookupColumnName="{x:Null}" RowIndex="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[in_dtDataService1]" DisplayName="Get Folder Name based on the Domain Name" sap:VirtualizedContainerService.HintSize="490,332.6666666666667" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupDataColumn="[in_dtDataService1.Columns(&quot;DomainName&quot;)]" LookupValue="[sEmailDomainName]">
+            <ui:LookupDataTable.CellValue>
+              <OutArgument x:TypeArguments="x:String">[VendorFolderName]</OutArgument>
+            </ui:LookupDataTable.CellValue>
+          </ui:LookupDataTable>
+          <If Condition="[Not String.IsNullOrEmpty(VendorFolderName)]" sap:VirtualizedContainerService.HintSize="490,2630" sap2010:WorkflowViewState.IdRef="If_1">
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="488,738" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="454,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Email Domain name is found and the domain name is.. &quot;+ VendorFolderName + &quot;Finance_AP_VendorMasterList&quot;]" />
+                <umam:MoveEmailConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID0}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID1}" ManualEntryFolder="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" BodyAsHtml="False" BrowserFolder="InPower/Learning/Vendor 1" BrowserFolderId="AAMkAGNiNDdhZTc2LWVhMmYtNDFhYy1hMmEwLTc2OTA0MGQ5ODVmNQAuAAAAAADh4ylfpELpRo7AOEjBgNuZAQCnVu2-mXfHRJu7v526x-FWAAAZlSElAAA=" ConnectionId="d7b36ada-158c-405c-b04c-4f9218cb2747" DisplayName="Move Email" Email="[in_currentOffice365Message(0)]" sap:VirtualizedContainerService.HintSize="454,287.3333333333333" sap2010:WorkflowViewState.IdRef="MoveEmailConnections_1" SelectionMode="Browse" UseConnectionService="True" UseSharedMailbox="False">
+                  <umam:MoveEmailConnections.MailFolderArgument>
+                    <umamm:MailFolderArgument ConnectionDescriptor="{x:Null}" ManualEntryFolder="{x:Null}" BrowserFolder="InPower/Learning/Vendor 1" BrowserFolderId="AAMkAGNiNDdhZTc2LWVhMmYtNDFhYy1hMmEwLTc2OTA0MGQ5ODVmNQAuAAAAAADh4ylfpELpRo7AOEjBgNuZAQCnVu2-mXfHRJu7v526x-FWAAAZlSElAAA=" ConnectionKey="d7b36ada-158c-405c-b04c-4f9218cb2747" SelectionMode="Browse">
+                      <umamm:MailFolderArgument.Backup>
+                        <usau:BackupSlot x:TypeArguments="umame:ItemSelectionMode" x:Name="__ReferenceID0" StoredValue="Browse">
+                          <usau:BackupSlot.BackupValues>
+                            <scg:Dictionary x:TypeArguments="umame:ItemSelectionMode, scg:List(x:Object)" />
+                          </usau:BackupSlot.BackupValues>
+                        </usau:BackupSlot>
+                      </umamm:MailFolderArgument.Backup>
+                    </umamm:MailFolderArgument>
+                  </umam:MoveEmailConnections.MailFolderArgument>
+                  <umam:MoveEmailConnections.MailboxArg>
+                    <umamm:MailboxArgument SharedMailbox="{x:Null}" UseSharedMailbox="False">
+                      <umamm:MailboxArgument.Backup>
+                        <usau:BackupSlot x:TypeArguments="umame:MailboxSelectionMode" x:Name="__ReferenceID1" StoredValue="NoMailbox">
+                          <usau:BackupSlot.BackupValues>
+                            <scg:Dictionary x:TypeArguments="umame:MailboxSelectionMode, scg:List(x:Object)" />
+                          </usau:BackupSlot.BackupValues>
+                        </usau:BackupSlot>
+                      </umamm:MailboxArgument.Backup>
+                    </umamm:MailboxArgument>
+                  </umam:MoveEmailConnections.MailboxArg>
+                </umam:MoveEmailConnections>
+                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object() { in_currentOffice365Message(0).MessageId.ToString(), &quot;Completed&quot; }]" DataTable="[out_Finaloutput]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="454,214" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="488,1761.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If Condition="[Not String.IsNullOrEmpty(sEmailSubjectName)]" sap:VirtualizedContainerService.HintSize="454,1299.3333333333333" sap2010:WorkflowViewState.IdRef="If_3">
+                  <If.Then>
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="452,1068.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="418,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[&quot;Email Domain name is not found, looking based on the email subject and the subject name is.. &quot;+ VendorFolderName + &quot;Finance_AP_Vendor Master List_OH&quot;]" />
+                      <umam:MoveEmailConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID2}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID3}" ManualEntryFolder="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" BodyAsHtml="False" BrowserFolder="InPower/Learning/Vendor 1" BrowserFolderId="AAMkAGNiNDdhZTc2LWVhMmYtNDFhYy1hMmEwLTc2OTA0MGQ5ODVmNQAuAAAAAADh4ylfpELpRo7AOEjBgNuZAQCnVu2-mXfHRJu7v526x-FWAAAZlSElAAA=" ConnectionId="d7b36ada-158c-405c-b04c-4f9218cb2747" DisplayName="Move Email" Email="[in_currentOffice365Message(0)]" sap:VirtualizedContainerService.HintSize="418,287.3333333333333" sap2010:WorkflowViewState.IdRef="MoveEmailConnections_3" SelectionMode="Browse" UseConnectionService="True" UseSharedMailbox="False">
+                        <umam:MoveEmailConnections.MailFolderArgument>
+                          <umamm:MailFolderArgument ConnectionDescriptor="{x:Null}" ManualEntryFolder="{x:Null}" BrowserFolder="InPower/Learning/Vendor 1" BrowserFolderId="AAMkAGNiNDdhZTc2LWVhMmYtNDFhYy1hMmEwLTc2OTA0MGQ5ODVmNQAuAAAAAADh4ylfpELpRo7AOEjBgNuZAQCnVu2-mXfHRJu7v526x-FWAAAZlSElAAA=" ConnectionKey="d7b36ada-158c-405c-b04c-4f9218cb2747" SelectionMode="Browse">
+                            <umamm:MailFolderArgument.Backup>
+                              <usau:BackupSlot x:TypeArguments="umame:ItemSelectionMode" x:Name="__ReferenceID2" StoredValue="Browse">
+                                <usau:BackupSlot.BackupValues>
+                                  <scg:Dictionary x:TypeArguments="umame:ItemSelectionMode, scg:List(x:Object)" />
+                                </usau:BackupSlot.BackupValues>
+                              </usau:BackupSlot>
+                            </umamm:MailFolderArgument.Backup>
+                          </umamm:MailFolderArgument>
+                        </umam:MoveEmailConnections.MailFolderArgument>
+                        <umam:MoveEmailConnections.MailboxArg>
+                          <umamm:MailboxArgument SharedMailbox="{x:Null}" UseSharedMailbox="False">
+                            <umamm:MailboxArgument.Backup>
+                              <usau:BackupSlot x:TypeArguments="umame:MailboxSelectionMode" x:Name="__ReferenceID3" StoredValue="NoMailbox">
+                                <usau:BackupSlot.BackupValues>
+                                  <scg:Dictionary x:TypeArguments="umame:MailboxSelectionMode, scg:List(x:Object)" />
+                                </usau:BackupSlot.BackupValues>
+                              </usau:BackupSlot>
+                            </umamm:MailboxArgument.Backup>
+                          </umamm:MailboxArgument>
+                        </umam:MoveEmailConnections.MailboxArg>
+                      </umam:MoveEmailConnections>
+                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object() { in_currentOffice365Message(0).MessageId.ToString(), &quot;Completed&quot; }]" DataTable="[out_Finaloutput]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="418,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                      <If Condition="[Not String.IsNullOrEmpty(sEmailSubjectName)]" sap:VirtualizedContainerService.HintSize="418,321.3333333333333" sap2010:WorkflowViewState.IdRef="If_4">
+                        <If.Then>
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="452,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <umam:MoveEmailConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID4}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID5}" ManualEntryFolder="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" BodyAsHtml="False" BrowserFolder="InPower/Learning/Others" BrowserFolderId="AAMkAGNiNDdhZTc2LWVhMmYtNDFhYy1hMmEwLTc2OTA0MGQ5ODVmNQAuAAAAAADh4ylfpELpRo7AOEjBgNuZAQCnVu2-mXfHRJu7v526x-FWAAAZlSEnAAA=" ConnectionId="d7b36ada-158c-405c-b04c-4f9218cb2747" DisplayName="Move Email" Email="[in_currentOffice365Message(0)]" sap:VirtualizedContainerService.HintSize="454,287.3333333333333" sap2010:WorkflowViewState.IdRef="MoveEmailConnections_2" SelectionMode="Browse" UseConnectionService="True" UseSharedMailbox="False">
+                  <umam:MoveEmailConnections.MailFolderArgument>
+                    <umamm:MailFolderArgument ConnectionDescriptor="{x:Null}" ManualEntryFolder="{x:Null}" BrowserFolder="InPower/Learning/Others" BrowserFolderId="AAMkAGNiNDdhZTc2LWVhMmYtNDFhYy1hMmEwLTc2OTA0MGQ5ODVmNQAuAAAAAADh4ylfpELpRo7AOEjBgNuZAQCnVu2-mXfHRJu7v526x-FWAAAZlSEnAAA=" ConnectionKey="d7b36ada-158c-405c-b04c-4f9218cb2747" SelectionMode="Browse">
+                      <umamm:MailFolderArgument.Backup>
+                        <usau:BackupSlot x:TypeArguments="umame:ItemSelectionMode" x:Name="__ReferenceID4" StoredValue="Browse">
+                          <usau:BackupSlot.BackupValues>
+                            <scg:Dictionary x:TypeArguments="umame:ItemSelectionMode, scg:List(x:Object)" />
+                          </usau:BackupSlot.BackupValues>
+                        </usau:BackupSlot>
+                      </umamm:MailFolderArgument.Backup>
+                    </umamm:MailFolderArgument>
+                  </umam:MoveEmailConnections.MailFolderArgument>
+                  <umam:MoveEmailConnections.MailboxArg>
+                    <umamm:MailboxArgument SharedMailbox="{x:Null}" UseSharedMailbox="False">
+                      <umamm:MailboxArgument.Backup>
+                        <usau:BackupSlot x:TypeArguments="umame:MailboxSelectionMode" x:Name="__ReferenceID5" StoredValue="NoMailbox">
+                          <usau:BackupSlot.BackupValues>
+                            <scg:Dictionary x:TypeArguments="umame:MailboxSelectionMode, scg:List(x:Object)" />
+                          </usau:BackupSlot.BackupValues>
+                        </usau:BackupSlot>
+                      </umamm:MailboxArgument.Backup>
+                    </umamm:MailboxArgument>
+                  </umam:MoveEmailConnections.MailboxArg>
+                </umam:MoveEmailConnections>
+                <Throw Exception="[New Exception(&quot;Business Exception - EM:3&quot;)]" sap:VirtualizedContainerService.HintSize="454,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_1" />
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="524,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="524,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </TryCatch.Finally>
+    </TryCatch>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="526,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Ending the Filter Mail List process..&quot;]" />
+  </Sequence>
+</Activity>
